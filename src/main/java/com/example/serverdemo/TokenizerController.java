@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 public class TokenizerController {
     @PostMapping("tokenize")
     public Map<String, Integer> tokenize(@RequestBody String str) {
-        return Arrays.stream(str.split(" ")).collect(Collectors.groupingBy(
-                s -> s,
+        return Arrays.stream(str.split("\\s+")).collect(Collectors.groupingBy(
+                s -> s.replaceAll("[^\\w]", ""),
                 Collectors.summingInt(__ -> 1)
         ));
     }
