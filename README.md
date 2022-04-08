@@ -11,7 +11,7 @@
   * Parameters:
     * name: string
   * Returns a "Hello ${name}" string
-* `/tokenize`
+* `POST /tokenize`
   * Parameters:
     * raw string - some sentence 
   * Returns a Map<String,Integer> word count 
