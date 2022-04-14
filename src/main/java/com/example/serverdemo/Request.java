@@ -5,9 +5,10 @@ import org.springframework.lang.NonNull;
 import org.springframework.lang.NonNullApi;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class Request {
-    @NotBlank(message = "Text is null")
+    @NotNull(message = "Text is null")
     private String text;
 
     public Request() {
