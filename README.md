@@ -12,9 +12,10 @@
     * name: string
   * Returns a "Hello ${name}" string
 * `POST /tokenize`
-  * Parameters:
-    * raw string - some sentence 
+  * Reqeust body:
+    * {"text": "string"} 
   * Returns a Map<String,Integer> word count 
+* ``
 
 ## Run
 
