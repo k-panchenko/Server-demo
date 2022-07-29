@@ -15,6 +15,8 @@ Parameter:
 Returns:
 * `double` (OMNI - 15.0, ERC20 - 5.0, TRC20 - 1.0)
 
+Example: GET http://localhost:8080/fee?network=OMNI
+
 ### `POST /transfer`
 
 Request body:
