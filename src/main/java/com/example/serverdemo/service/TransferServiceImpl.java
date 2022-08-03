@@ -12,14 +12,22 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TransferServiceImpl implements TransferService {
     private final FeeService feeServiceImpl;
+
     @Override
     public TransferResponse createTransfer(TransferRequest transferRequest) {
         var fee = feeServiceImpl.getCommission(transferRequest.getNetwork());
         var amount = transferRequest.getAmount() - fee;
+        var status = Status.SUCCESS;
+        String error = null;
+        if (amount <= 0) {
+            status = Status.FAILED;
+            error = "Filled amount <= 0";
+        }
         return TransferResponse.builder()
                 .commission(fee)
                 .amount(amount)
-                .status(Status.SUCCESS)
+                .status(status)
+                .error(error)
                 .build();
     }
 }
